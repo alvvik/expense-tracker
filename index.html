@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple expense tracker</title>
+    <script type="module" crossorigin src="/assets/index-DjViOQNP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CmkWukMA.css">
+  </head>
+  <body>
+    <div class="min-h-screen bg-sky-950 text-sky-200 p-4 font-sans">
+      <div
+        class="flex justify-center items-center flex-col gap-4 p-4"
+        id="stats"
+      >
+        <p id="statsAmount" class="text-3xl font-extrabold text-center">
+          Łączne wydatki: 0zł
+        </p>
+        <button
+          class="bg-sky-500 p-4 rounded-2xl shadow-lg shadow-sky-500/30 active:scale-95 transition-transform toggleModal"
+          id="showModal"
+        >
+          Dodaj wydatek
+        </button>
+      </div>
+      <div
+        id="sort"
+        class="flex flex-row sticky top-0 backdrop-blur gap-2 p-2 my-6 overflow-x-auto whitespace-nowrap"
+      >
+        <button id="all" class="sort">Wszystkie</button>
+        <button id="Transport" class="sort">Transport</button>
+        <button id="jedzenie" class="sort">Jedzenie</button>
+        <button id="rozrywka" class="sort">Rozrywka</button>
+        <button id="inne" class="sort">Inne</button>
+      </div>
+      <div
+        id="modal"
+        class="bg-black/50 fixed inset-0 flex items-center justify-center flex-col p-8 m-8 shadow-2xl rounded-2xl backdrop-blur-sm z-50 hidden"
+      >
+        <form action="" class="">
+          <div>
+            <label for="expenseName">Nazwa wydatku</label>
+            <input
+              type="text"
+              placeholder="Wpisz nazwe wydatku"
+              id="expenseName"
+            />
+          </div>
+          <div>
+            <label for="expensePrice">Ile wydales na ten wydatek?</label>
+            <input type="number" id="expensePrice" placeholder="2137zł" />
+          </div>
+          <div>
+            <label for="expenseSelect">Wybierz kategorie wydatku</label>
+          </div>
+          <div id="expenseSelect">
+            <div>
+              <label for="transport">Transport</label>
+              <input
+                type="radio"
+                name="expenseSelect"
+                id="transport"
+                value="Transport"
+              />
+            </div>
+            <div>
+              <label for="food">Jedzenie</label>
+              <input
+                type="radio"
+                name="expenseSelect"
+                id="food"
+                value="Jedzenie"
+              />
+            </div>
+            <div>
+              <label for="fun">Rozrywka</label>
+              <input
+                type="radio"
+                name="expenseSelect"
+                id="fun"
+                value="Rozrywka"
+              />
+            </div>
+            <div>
+              <label for="other">Inne</label>
+              <input
+                type="radio"
+                name="expenseSelect"
+                id="other"
+                value="Inne"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            id="submitForm"
+            class="bg-green-500 p-4 rounded-2xl shadow-lg shadow-green-500/30 active:scale-95 transition-transform"
+          >
+            Dodaj wydatek
+          </button>
+          <button
+            type="reset"
+            id="cancelForm"
+            class="bg-red-600 p-4 rounded-2xl shadow-lg shadow-red-500/30 active:scale-95 transition-transform toggleModal"
+          >
+            Anuluj
+          </button>
+        </form>
+      </div>
+
+      <div>
+        <div id="expenseList"></div>
+      </div>
+    </div>
+  </body>
+</html>
